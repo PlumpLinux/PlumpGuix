@@ -1,49 +1,55 @@
 
 * Quick start user guide on Gentoo:
 
-  + *[as root]* allow binary substitution to be downloaded (optional)
+** 설치
+   + *[as root]* allow binary substitution to be downloaded (optional)
 
-  + [root 로] 바이너리 substitution 을 다운로드 할 수 있습니다 (선택 사항)
+   + [root 로] 바이너리 substitution 을 다운로드 할 수 있습니다 (선택 사항)
 
-    #+BEGIN_SRC sh
+     #+BEGIN_SRC sh
   guix archive --authorize < /usr/share/guix/hydra.gnu.org.pub
-    #+END_SRC
+     #+END_SRC
 
-  + *[as root]* enable guix-daemon service:
-    - [systemd]
-  #+BEGIN_SRC sh
+   + *[as root]* enable guix-daemon service:
+     - [systemd]
+   #+BEGIN_SRC sh
 systemctl enable guix-daemon
-  #+END_SRC
+   #+END_SRC
 
-  + [openrc]  
-  #+BEGIN_SRC sh
+   + [openrc]  
+   #+BEGIN_SRC sh
 rc-update add guix-daemon
-  #+END_SRC
+   #+END_SRC
 
-  + *[as a user]*
-  #+BEGIN_SRC sh
+   + *[as a user]*
+   #+BEGIN_SRC sh
 ln -sf /var/guix/profiles/per-user/$USER/guix-profile $HOME/.guix-profile
-  #+END_SRC
+   #+END_SRC
 
-  + [as a user] install guix packages:
+   + [as a user] install guix packages:
 
-    + Install hello package
-  #+BEGIN_SRC sh
+     + Install hello package
+   #+BEGIN_SRC sh
 guix package -i hello
-  #+END_SRC
+   #+END_SRC
 
-  + [as a user] configure environment: Somewhere in .bash_profile you might want to set
-  + [유저 로] 환경 구성: .bash_profile 에 설정할 수 있습니다.
-  #+BEGIN_SRC sh
+   + [as a user] configure environment: Somewhere in .bash_profile you might want to set
+   + [유저 로] 환경 구성: .bash_profile 에 설정할 수 있습니다.
+   #+BEGIN_SRC sh
 echo "export GUIX_LOCPATH=$HOME/.guix-profile/lib/locale" >> ~/.bash_profile
-  #+END_SRC
+   #+END_SRC
 
-  + Next steps:
+   + Next steps:
 
-    + guix package manager user manual:  https://www.gnu.org/software/guix/manual/guix.html
+     + guix package manager user manual:  https://www.gnu.org/software/guix/manual/guix.html
 
-    + (Note: Above message is only printed the first time package is installed. Please look at /usr/share/doc/guix-0.13.0/README.gentoo for future reference)
+     + (Note: Above message is only printed the first time package is installed. Please look at /usr/share/doc/guix-0.13.0/README.gentoo for future reference)
 
-    + (참고 : 위 메시지는 패키지를 처음 설치할 때만 인쇄됩니다. 나중에 참조 할 수 있도록 /usr/share/doc/guix-0.13.0/README.gentoo를 보십시오)
+     + (참고 : 위 메시지는 패키지를 처음 설치할 때만 인쇄됩니다. 나중에 참조 할 수 있도록 /usr/share/doc/guix-0.13.0/README.gentoo를 보십시오)
 
+
+** 업데이트
+guix package: warning: Consider running 'guix pull' followed by 'guix package -u' to get up-to-date packages and security updates.
+
+guix 패키지: 경고: 최신 패키지 및 보안 업데이트를 얻으려면 'guix pull'을 실행하고 'guix package -u'를 실행하십시오.
 
